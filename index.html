@@ -7,6 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+    </style>
 </head>
 <body>
     <!-- navbar section is started here -->
@@ -44,35 +52,50 @@
                 <div>
                     <label class="input flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Search your phone"/>
+                        <input id="inputField" type="text" placeholder="Search your phone"/>
                       </label>
                 </div>
                 <div>
-                    <button class="btn bg-blue-400 font-bold text-white">Search</button>
+                    <button onclick="handleSearch()" class="btn bg-blue-400 font-bold text-white">Search</button>
                 </div>
             </div>
          </div>
         <!-- search phone ends is here -->
 
+        
+
+        <!-- spinner is here 
+          -->
+
+          <div class="spinner-container">
+            <span id="spinner" class="loading loading-spinner hidden loading-xs"></span>
+        </div>
+
+        <!-- show all button is here  -->
+
+        <div class="text-center mt-5">
+            <button onclick="showAll()" class="btn bg-blue-400 text-white font-bold">Show all</button>
+        </div>
+
 
         <!-- card container section is here  -->
-            <div id="card-container" class="w-[80%] mx-auto grid grid-cols-3 gap-3 mb-10">
-                <div class="border p-2 rounded text-center ">
-                    <!-- card image  -->
-                    <div>
-                        <img src="" alt="">
-                    </div>
-                    <!-- card description  -->
-                    <div class="space-y-4">
-                        <h1 class="font-bold">Iphone 13 Pro Max</h1>
-                        <p class="text-gray-400">There are many variations of passages of available, but the majority have suffered</p>
-                        <h2 class="font-bold">$999</h2>
-                        <button class="btn bg-blue-400 text-white font-bold">Show details</button>
-                    </div>
-                </div>
+            <div id="card-container" class="w-[80%] mx-auto grid grid-cols-3 gap-5 mb-10">
+                
             </div>
 
         <!-- card section is ends here  -->
+
+
+
+        <!-- modal is here  -->
+
+        <!-- Open the modal using ID.showModal() method -->
+            <div id="show-modal">
+                
+            </div>
+
+
+        
 
 
 
