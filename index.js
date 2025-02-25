@@ -4,29 +4,21 @@ const loadAllPhones = async(status,brandName)=> {
 
     const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${brandName?brandName:"iphone"}`);
     const data = await response.json();
-    if(status){
-        displayAllPhones(data.data)
-            
-    }
-
-    else{
-        
-        displayAllPhones(data.data.slice(0,6));
-    }
-        
-
+    displayAllPhones(data.data, status);
         };
 
 
-function displayAllPhones(phones) {
+function displayAllPhones(phones,status) {
     document.getElementById('card-container').innerHTML = "";
     const cardContainer = document.getElementById('card-container');
 
     if (phones.length === 0) {
-        cardContainer.innerHTML = `<p class="text-red-500 text-center font-bold">No phones found!</p>`;
+        cardContainer.innerHTML = `<p class="text-red-500 text-5xl text-center font-bold">No phones found!Please try again later</p>`;
+        cardContainer.classList.remove("grid")
         return;
     }
-
+    cardContainer.classList.add("grid")
+    const phonesToShow = status ? phones : phones.slice(0, 6);
     phones.forEach(phone => {
         const { phone_name, slug, image, brand } = phone;
         const div = document.createElement('div');
